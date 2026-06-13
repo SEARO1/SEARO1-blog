@@ -29,7 +29,7 @@ const desktopRemaining = maxDesktop == null ? 0 : Math.max(cleanTags.length - de
 			<div class="flex flex-wrap gap-2 md:hidden">
 				{mobileTags.map((tag) => (
 					<a
-						href={`${base}tags/${encodeURIComponent(getTagSlug(tag))}/`}
+						href={`${base.replace(/\/$/, "")}/tags/${encodeURIComponent(getTagSlug(tag))}/`}
 						class="apple-float-chip inline-flex min-w-0 max-w-[8.5rem] items-center truncate rounded-lg border border-zinc-300/90 bg-zinc-50/96 px-2.5 py-1 text-xs font-medium text-zinc-700 no-underline dark:border-zinc-700/90 dark:bg-zinc-900/96 dark:text-zinc-300"
 					>
 						<span class="apple-float-label truncate">{tag}</span>
@@ -44,7 +44,7 @@ const desktopRemaining = maxDesktop == null ? 0 : Math.max(cleanTags.length - de
 			<div class="hidden gap-2 md:flex md:flex-wrap md:justify-end">
 				{desktopTags.map((tag) => (
 					<a
-						href={`${base}tags/${encodeURIComponent(getTagSlug(tag))}/`}
+						href={`${base.replace(/\/$/, "")}/tags/${encodeURIComponent(getTagSlug(tag))}/`}
 						class="apple-float-chip inline-flex min-w-0 max-w-[8.5rem] items-center truncate rounded-lg border border-zinc-300/90 bg-zinc-50/96 px-2.5 py-1 text-xs font-medium text-zinc-700 no-underline dark:border-zinc-700/90 dark:bg-zinc-900/96 dark:text-zinc-300"
 					>
 						<span class="apple-float-label truncate">{tag}</span>
