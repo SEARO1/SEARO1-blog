@@ -13,7 +13,11 @@
     "type": "git",
     "url": "git+https://github.com/SEARO1/SEARO1-blog.git"
   },
-  "keywords": ["blog", "astro", "tailwind"],
+  "keywords": [
+    "blog",
+    "astro",
+    "tailwind"
+  ],
   "author": "SEARO1",
   "license": "ISC",
   "bugs": {
@@ -21,8 +25,8 @@
   },
   "homepage": "https://github.com/SEARO1/SEARO1-blog#readme",
   "dependencies": {
-    "@astrojs/tailwind": "^6.0.2",
-    "astro": "^6.4.6",
-    "tailwindcss": "^3.4.19"
+    "@astrojs/tailwind": "5.1.5",
+    "astro": "5.18.2",
+    "tailwindcss": "3.4.19"
   }
 }
