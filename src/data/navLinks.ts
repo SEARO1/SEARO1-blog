@@ -1,7 +1,9 @@
-export const getNavLinks = (base: string) => [
-	{ href: `${base}`, label: 'Home' },
-	{ href: `${base}blog/`, label: 'Blog' },
-	{ href: `${base}tags/`, label: 'Tags' },
-	{ href: `${base}links/`, label: 'Links' },
-	{ href: `${base}about/`, label: 'About' },
-];
+export const getNavLinks = (base: string) => {
+	const normalized = base.endsWith('/') ? base : base + '/';
+	return [
+		{ href: normalized, label: 'Home' },
+		{ href: `${normalized}blog/`, label: 'Blog' },
+		{ href: `${normalized}tags/`, label: 'Tags' },
+		{ href: `${normalized}about/`, label: 'About' },
+	];
+};
