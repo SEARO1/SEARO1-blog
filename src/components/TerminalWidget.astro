@@ -1,0 +1,178 @@
+---
+interface Props {
+  quote?: string;
+  author?: string;
+  class?: string;
+}
+
+const { 
+  quote = "Code is like humor. When you have to explain it, it's bad.",
+  author = "Cory House",
+  class: className = ""
+} = Astro.props;
+---
+
+<div class={`terminal-widget ${className}`}>
+  <div class="terminal-header">
+    <div class="traffic-lights">
+      <span class="traffic-light red"></span>
+      <span class="traffic-light yellow"></span>
+      <span class="traffic-light green"></span>
+    </div>
+    <span class="terminal-title">zsh — 80x24</span>
+  </div>
+  <div class="terminal-body">
+    <div class="terminal-prompt">
+      <span class="prompt-user">searo1</span>
+      <span class="prompt-at">@</span>
+      <span class="prompt-host">blog</span>
+      <span class="prompt-separator">:</span>
+      <span class="prompt-path">~</span>
+      <span class="prompt-symbol">❯</span>
+    </div>
+    <div class="terminal-quote">
+      <span class="quote-mark">"</span>
+      <span class="quote-text">{quote}</span>
+      <span class="quote-mark">"</span>
+      <span class="quote-author">— {author}</span>
+    </div>
+    <div class="terminal-prompt">
+      <span class="prompt-symbol">❯</span>
+      <span class="cursor">█</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .terminal-widget {
+    background: #1e1e2e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06),
+      0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+    max-width: 400px;
+  }
+
+  .terminal-header {
+    background: #181825;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .traffic-lights {
+    display: flex;
+    gap: 8px;
+  }
+
+  .traffic-light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .traffic-light.red {
+    background: #f38ba8;
+  }
+
+  .traffic-light.yellow {
+    background: #f9e2af;
+  }
+
+  .traffic-light.green {
+    background: #a6e3a1;
+  }
+
+  .terminal-title {
+    color: #6c7086;
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .terminal-body {
+    padding: 16px 20px;
+    color: #cdd6f4;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .terminal-prompt {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 12px;
+  }
+
+  .prompt-user {
+    color: #89b4fa;
+  }
+
+  .prompt-at {
+    color: #6c7086;
+  }
+
+  .prompt-host {
+    color: #f38ba8;
+  }
+
+  .prompt-separator {
+    color: #6c7086;
+  }
+
+  .prompt-path {
+    color: #a6e3a1;
+  }
+
+  .prompt-symbol {
+    color: #cdd6f4;
+    margin-left: 8px;
+  }
+
+  .cursor {
+    animation: blink 1s step-end infinite;
+    color: #f5e0dc;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+  }
+
+  .terminal-quote {
+    background: rgba(137, 180, 250, 0.1);
+    border-left: 3px solid #89b4fa;
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .quote-mark {
+    color: #89b4fa;
+    font-size: 18px;
+    line-height: 0;
+    vertical-align: middle;
+  }
+
+  .quote-text {
+    color: #cdd6f4;
+    font-style: italic;
+  }
+
+  .quote-author {
+    display: block;
+    color: #6c7086;
+    font-size: 12px;
+    margin-top: 8px;
+    text-align: right;
+  }
+
+  /* Dark mode adjustments */
+  :global(.dark) .terminal-widget {
+    background: #1e1e2e;
+  }
+</style>
