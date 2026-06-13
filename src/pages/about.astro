@@ -11,12 +11,21 @@ const BASE = import.meta.env.BASE_URL;
 			<!-- Hero Section -->
 			<header class="mb-10">
 				<p class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-400">About</p>
-				<h1 class="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 md:text-5xl">
-					Cheung Wai Man
-				</h1>
-				<p class="mt-2 text-lg text-zinc-600 dark:text-zinc-400">
-					Computer and Data Engineering Student · City University of Hong Kong
-				</p>
+				<div class="flex items-center gap-5">
+					<img
+						src={`${BASE}avatar.jpg`}
+						alt="Cheung Wai Man"
+						class="h-24 w-24 rounded-full object-cover ring-2 ring-zinc-200/50 dark:ring-zinc-700/50"
+					/>
+					<div>
+						<h1 class="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 md:text-5xl">
+							Cheung Wai Man
+						</h1>
+						<p class="mt-1 text-lg text-zinc-600 dark:text-zinc-400">
+							Computer and Data Engineering Student · City University of Hong Kong
+						</p>
+					</div>
+				</div>
 				<div class="mt-4 flex flex-wrap gap-3">
 					<a
 						href="mailto:wmcheung85-c@my.cityu.edu.hk"
