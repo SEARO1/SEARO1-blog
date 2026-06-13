@@ -1,0 +1,84 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { getTagSlug, normalizeTagLabel } from "../../utils/tags";
+import { SITE_TITLE } from "../../consts";
+
+const BASE = import.meta.env.BASE_URL;
+const posts = await getCollection("blog");
+
+const tagCount = new Map<string, { label: string; count: number }>();
+for (const post of posts) {
+	const tags = post.data.tags ?? [];
+	for (const tag of tags) {
+		const label = normalizeTagLabel(tag);
+		if (!label) continue;
+		const slug = getTagSlug(label);
+		const existing = tagCount.get(slug);
+		tagCount.set(slug, {
+			label: existing?.label ?? label,
+			count: (existing?.count ?? 0) + 1,
+		});
+	}
+}
+
+const sortedTags = [...tagCount.entries()].sort((a, b) => {
+	if (b[1].count !== a[1].count) return b[1].count - a[1].count;
+	return a[1].label.localeCompare(b[1].label, "en", { sensitivity: "base" });
+});
+
+const counts = sortedTags.map(([, meta]) => meta.count);
+const maxCount = counts.length ? Math.max(...counts) : 1;
+const minCount = counts.length ? Math.min(...counts) : 1;
+const scaleFor = (count: number) => {
+	if (maxCount === minCount) return 1;
+	const t = (count - minCount) / (maxCount - minCount);
+	return Number((0.86 + t * 0.62).toFixed(3));
+};
+const totalTagged = counts.reduce((sum, c) => sum + c, 0);
+---
+
+<Layout title={`Browse Tags | ${SITE_TITLE}`}>
+	<main class="mx-auto max-w-3xl px-4 py-12">
+		<header class="mb-9">
+			<p class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-400">Explore</p>
+			<h1 class="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">Browse Tags</h1>
+			<p class="mt-2 text-zinc-600 dark:text-zinc-400">
+				{sortedTags.length} topics across {totalTagged} tagged entries ¡X sized by how often each appears.
+			</p>
+		</header>
+
+		<div class="flex flex-wrap items-center gap-2.5 text-[15px]">
+			{
+				sortedTags.map(([slug, meta], idx) => {
+					const scale = scaleFor(meta.count);
+					const hot = meta.count >= maxCount * 0.7;
+					return (
+						<a
+							href={`${BASE}tags/${encodeURIComponent(slug)}/`}
+							data-reveal
+							style={`--reveal-delay: ${Math.min(idx * 22, 380)}ms; font-size: ${scale}rem`}
+							class:list={[
+								"apple-float-chip inline-flex items-center rounded-2xl border px-[0.9em] py-[0.45em] font-medium no-underline",
+								hot
+									? "border-[rgba(180,126,36,0.42)] bg-[rgba(180,126,36,0.09)] text-zinc-800 dark:border-[rgba(226,190,110,0.4)] dark:bg-[rgba(226,190,110,0.11)] dark:text-zinc-50"
+									: "border-zinc-300/80 bg-zinc-50/96 text-zinc-700 dark:border-zinc-700/80 dark:bg-zinc-900/96 dark:text-zinc-200",
+							]}
+						>
+							<span class="apple-float-label">
+								<span>{meta.label}</span>
+								<span class="ml-1.5 text-[0.72em] font-semibold text-zinc-400 dark:text-zinc-500">{meta.count}</span>
+							</span>
+						</a>
+					);
+				})
+			}
+		</div>
+
+		{sortedTags.length === 0 && (
+			<div class="flex h-32 flex-col items-center justify-center text-zinc-500 dark:text-zinc-400">
+				<p>No tags yet.</p>
+			</div>
+		)}
+	</main>
+</Layout>

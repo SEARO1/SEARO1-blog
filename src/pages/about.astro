@@ -1,0 +1,47 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { SITE_TITLE } from "../consts";
+---
+
+<Layout title={`About | ${SITE_TITLE}`}>
+	<main class="page-shell py-10 md:py-14">
+		<div class="mx-auto max-w-3xl">
+			<header class="mb-10">
+				<p class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-400">About</p>
+				<h1 class="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">{SITE_TITLE}</h1>
+			</header>
+
+			<div class="markdown-prose">
+				<p>
+					Welcome to {SITE_TITLE}! This blog is a personal space for sharing research notes,
+					engineering logs, and technical essays on software development, systems design,
+					and technology.
+				</p>
+
+				<h2>About Me</h2>
+				<p>
+					I'm a software engineer passionate about building robust systems, writing clean code,
+					and documenting the things I learn along the way. This blog serves as both a personal
+					knowledge base and a way to give back to the developer community.
+				</p>
+
+				<h2>Topics</h2>
+				<p>
+					Posts on this blog cover a range of topics including:
+				</p>
+				<ul>
+					<li>Software Engineering & Architecture</li>
+					<li>Web Development & DevOps</li>
+					<li>Programming Languages & Tools</li>
+					<li>Technical Problem Solving</li>
+				</ul>
+
+				<h2>Contact</h2>
+				<p>
+					Feel free to reach out through GitHub or open an issue on the blog's repository
+					if you have questions or suggestions.
+				</p>
+			</div>
+		</div>
+	</main>
+</Layout>
