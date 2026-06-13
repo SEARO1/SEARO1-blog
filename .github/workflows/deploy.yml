@@ -17,8 +17,6 @@ concurrency:
 env:
   FORCE_JAVASCRIPTACTIONS_TO_NODE24: true
 
-offset: development
-
 jobs:
   build:
     runs-on: ubuntu-latest
