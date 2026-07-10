@@ -1,12 +1,12 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { SITE_TITLE } from "../consts";
+import Layout from "@/layouts/Layout.astro";
+import { SITE_TITLE } from "@/consts";
 
 const BASE = import.meta.env.BASE_URL;
 ---
 
 <Layout title={`About | ${SITE_TITLE}`}>
-	<main class="page-shell py-10 md:py-14">
+	<div class="page-shell py-10 md:py-14">
 		<div class="mx-auto max-w-3xl">
 			<!-- Hero Section -->
 			<header class="mb-10">
@@ -172,5 +172,5 @@ const BASE = import.meta.env.BASE_URL;
 				</div>
 			</section>
 		</div>
-	</main>
+	</div>
 </Layout>

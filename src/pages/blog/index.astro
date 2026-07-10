@@ -1,28 +1,39 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
-import PostCard from "../../components/PostCard.astro";
-import { SITE_TITLE } from "../../consts";
+import Layout from "@/layouts/Layout.astro";
+import PostCard from "@/components/PostCard.astro";
+import { SITE_TITLE } from "@/consts";
 
 const BASE = import.meta.env.BASE_URL;
+
+const POSTS_PER_PAGE = 5;
 
 const allPosts = await getCollection("blog");
 const posts = allPosts
 	.filter((post) => !post.data.draft)
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const page = 1;
+const totalPages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE));
+const pagePosts = posts.slice(0, POSTS_PER_PAGE);
+const hasNext = page < totalPages;
+const hasPrev = page > 1;
 ---
 
 <Layout title={`Blog | ${SITE_TITLE}`}>
-	<main class="page-shell py-10 md:py-14">
+	<div class="page-shell py-10 md:py-14">
 		<section class="mx-auto max-w-4xl">
 			<header class="mb-10">
 				<p class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-400">Writing</p>
 				<h1 class="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">Blog</h1>
-				<p class="mt-2 text-zinc-600 dark:text-zinc-400">Research notes, engineering logs, and technical essays.</p>
+				<p class="mt-2 text-zinc-600 dark:text-zinc-400">
+					Research notes, engineering logs, and technical essays.
+					{totalPages > 1 && <span class="text-zinc-400"> · Page {page} of {totalPages}</span>}
+				</p>
 			</header>
 
 			<div class="grid gap-4">
-				{posts.map((post, idx) => (
+				{pagePosts.map((post, idx) => (
 					<div data-reveal style={`--reveal-delay: ${Math.min(idx * 60, 180)}ms`}>
 						<PostCard post={post} base={BASE} maxMobile={3} maxDesktop={3} />
 					</div>
@@ -34,6 +45,39 @@ const posts = allPosts
 					<p>No posts yet. Check back soon!</p>
 				</div>
 			)}
+
+			{totalPages > 1 && (
+				<nav class="mt-10 flex items-center justify-center gap-2" aria-label="Blog pagination">
+					{hasPrev && (
+						<a
+							href={`${BASE}/blog/page/${page - 1}/`}
+							class="inline-flex items-center gap-1 rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
+						>
+							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+							Previous
+						</a>
+					)}
+
+					{Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+						p === page
+							? <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-900 text-sm font-medium text-white dark:bg-zinc-100 dark:text-zinc-900">{p}</span>
+							: <a
+								href={p === 1 ? `${BASE}/blog/` : `${BASE}/blog/page/${p}/`}
+								class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-200 bg-white text-sm font-medium text-zinc-600 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700"
+							>{p}</a>
+					))}
+
+					{hasNext && (
+						<a
+							href={`${BASE}/blog/page/${page + 1}/`}
+							class="inline-flex items-center gap-1 rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
+						>
+							Next
+							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+						</a>
+					)}
+				</nav>
+			)}
 		</section>
-	</main>
+	</div>
 </Layout>

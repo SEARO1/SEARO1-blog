@@ -19,3 +19,8 @@ npm-debug.log*
 # Environment
 .env
 .env.local
+
+# Build cache.astro/
+screenshots/
+screenshot.mjs
+check_avatar.jpg

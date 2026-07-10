@@ -1,10 +1,11 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
-import FormattedDate from "../components/FormattedDate.astro";
-import Header from "../components/Header.astro";
-import { getTagSlug } from "../utils/tags";
+import BaseHead from "@/components/BaseHead.astro";
+import Footer from "@/components/Footer.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
+import Header from "@/components/Header.astro";
+import { getTagSlug } from "@/utils/tags";
+import { SITE_TITLE } from "@/consts";
 
 type Props = CollectionEntry<"blog">["data"] & {
 	headings?: { depth: number; slug: string; text: string }[];
@@ -32,7 +33,7 @@ const charsLabel = chars.toLocaleString("en-US");
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`${title} | SEARO1 Blog`} description={description} />
+		<BaseHead title={`${title} | ${SITE_TITLE}`} description={description} />
 	</head>
 	<body>
 		<div class="reading-progress" aria-hidden="true"></div>
@@ -84,7 +85,7 @@ const charsLabel = chars.toLocaleString("en-US");
 							)
 						}
 
-						<div class="markdown-prose min-w-0">
+						<div class="prose prose-zinc dark:prose-invert max-w-none min-w-0">
 							<slot />
 						</div>
 					</div>
@@ -102,8 +103,54 @@ const charsLabel = chars.toLocaleString("en-US");
 		</button>
 
 		<style is:global>
-			.markdown-prose :is(h2, h3, h4) {
+			.prose :is(h2, h3, h4) {
 				scroll-margin-top: 7rem;
+			}
+
+			/* Custom prose theme overrides */
+			.prose {
+				--tw-prose-body: theme('colors.zinc.600');
+				--tw-prose-headings: theme('colors.zinc.900');
+				--tw-prose-links: theme('colors.blue.600');
+				--tw-prose-code: theme('colors.zinc.800');
+				--tw-prose-pre-bg: #1e1e2e;
+			}
+			.dark .prose {
+				--tw-prose-body: theme('colors.zinc.400');
+				--tw-prose-headings: theme('colors.zinc.100');
+				--tw-prose-links: theme('colors.blue.400');
+				--tw-prose-code: theme('colors.zinc.200');
+			}
+			.prose pre {
+				background: #1e1e2e !important;
+				border: 1px solid theme('colors.zinc.800');
+				border-radius: 0.75rem;
+			}
+			.prose code {
+				font-family: 'JetBrains Mono', 'Fira Code', monospace;
+				font-size: 0.875em;
+			}
+			.prose pre code {
+				font-size: 0.8em;
+			}
+			.prose img {
+				border-radius: 0.75rem;
+			}
+			.prose blockquote {
+				font-style: italic;
+				border-left-color: theme('colors.zinc.300');
+			}
+			.dark .prose blockquote {
+				border-left-color: theme('colors.zinc.700');
+			}
+			.prose :where(code):not(:where(pre code)) {
+				background-color: theme('colors.zinc.100');
+				padding: 0.15em 0.4em;
+				border-radius: 0.25rem;
+				font-weight: 500;
+			}
+			.dark .prose :where(code):not(:where(pre code)) {
+				background-color: theme('colors.zinc.800');
 			}
 		</style>
 
