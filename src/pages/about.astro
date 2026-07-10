@@ -1,5 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import SectionCard from "@/components/SectionCard.astro";
 import { SITE_TITLE } from "@/consts";
 
 const BASE = import.meta.env.BASE_URL;
@@ -58,35 +59,41 @@ const BASE = import.meta.env.BASE_URL;
 				</p>
 			</section>
 
-			<!-- Education -->
+			<!-- Education Timeline -->
 			<section class="mb-10">
-				<h2 class="mb-4 text-xl font-semibold text-zinc-900 dark:text-zinc-100">Education</h2>
-				<div class="space-y-4">
-					<div class="rounded-xl border border-zinc-200 bg-zinc-50/50 p-5 dark:border-zinc-800 dark:bg-zinc-900/50">
-						<div class="flex items-start justify-between gap-3">
-							<div>
-								<h3 class="font-semibold text-zinc-900 dark:text-zinc-100">City University of Hong Kong</h3>
-								<p class="text-sm text-zinc-600 dark:text-zinc-400">Bachelor of Engineering in Computer and Data Engineering</p>
+				<h2 class="mb-6 text-xl font-semibold text-zinc-900 dark:text-zinc-100">Education</h2>
+				<div class="relative ml-2 pl-8 before:absolute before:left-[11px] before:top-2 before:h-[calc(100%-1rem)] before:w-[2px] before:bg-zinc-200 dark:before:bg-zinc-700">
+					<div class="relative mb-8 last:mb-0">
+						<div class="absolute -left-[29px] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-green-500 bg-green-100 dark:bg-green-900/40"></div>
+						<SectionCard>
+							<div class="flex items-start justify-between gap-3">
+								<div>
+									<h3 class="font-semibold text-zinc-900 dark:text-zinc-100">City University of Hong Kong</h3>
+									<p class="text-sm text-zinc-600 dark:text-zinc-400">Bachelor of Engineering in Computer and Data Engineering</p>
+								</div>
+								<span class="shrink-0 rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-700 dark:bg-green-900/40 dark:text-green-400">2024–Present</span>
 							</div>
-							<span class="shrink-0 rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-700 dark:bg-green-900/40 dark:text-green-400">2024–Present</span>
-						</div>
-						<div class="mt-3 flex flex-wrap gap-1.5">
-							<span class="rounded-md bg-zinc-200/70 px-2 py-0.5 text-xs font-medium text-zinc-700 dark:bg-zinc-700/60 dark:text-zinc-300">Microcomputer Systems</span>
-							<span class="rounded-md bg-zinc-200/70 px-2 py-0.5 text-xs font-medium text-zinc-700 dark:bg-zinc-700/60 dark:text-zinc-300">Circuit Design</span>
-							<span class="rounded-md bg-zinc-200/70 px-2 py-0.5 text-xs font-medium text-zinc-700 dark:bg-zinc-700/60 dark:text-zinc-300">Networking</span>
-							<span class="rounded-md bg-zinc-200/70 px-2 py-0.5 text-xs font-medium text-zinc-700 dark:bg-zinc-700/60 dark:text-zinc-300">Java Programming</span>
-						</div>
+							<div class="mt-3 flex flex-wrap gap-1.5">
+								<span class="rounded-md bg-zinc-200/70 px-2 py-0.5 text-xs font-medium text-zinc-700 dark:bg-zinc-700/60 dark:text-zinc-300">Microcomputer Systems</span>
+								<span class="rounded-md bg-zinc-200/70 px-2 py-0.5 text-xs font-medium text-zinc-700 dark:bg-zinc-700/60 dark:text-zinc-300">Circuit Design</span>
+								<span class="rounded-md bg-zinc-200/70 px-2 py-0.5 text-xs font-medium text-zinc-700 dark:bg-zinc-700/60 dark:text-zinc-300">Networking</span>
+								<span class="rounded-md bg-zinc-200/70 px-2 py-0.5 text-xs font-medium text-zinc-700 dark:bg-zinc-700/60 dark:text-zinc-300">Java Programming</span>
+							</div>
+						</SectionCard>
 					</div>
-					<div class="rounded-xl border border-zinc-200 bg-zinc-50/50 p-5 dark:border-zinc-800 dark:bg-zinc-900/50">
-						<div class="flex items-start justify-between gap-3">
-							<div>
-								<h3 class="font-semibold text-zinc-900 dark:text-zinc-100">Hong Kong Community College</h3>
-								<p class="text-sm text-zinc-600 dark:text-zinc-400">Associate Degree in Internet Technology</p>
+					<div class="relative mb-8 last:mb-0">
+						<div class="absolute -left-[29px] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-zinc-400 bg-zinc-100 dark:border-zinc-500 dark:bg-zinc-700"></div>
+						<SectionCard>
+							<div class="flex items-start justify-between gap-3">
+								<div>
+									<h3 class="font-semibold text-zinc-900 dark:text-zinc-100">Hong Kong Community College</h3>
+									<p class="text-sm text-zinc-600 dark:text-zinc-400">Associate Degree in Internet Technology</p>
+								</div>
+								<span class="shrink-0 rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-700/60 dark:text-zinc-400">2022–2024</span>
 							</div>
-							<span class="shrink-0 rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-700/60 dark:text-zinc-400">2022–2024</span>
-						</div>
-						<p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Notable coursework: Data Structure, Algorithm, Programming Language</p>
-						<p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Projects: Library management system, ATM system, web pages (HTML, C++, Java OOP)</p>
+							<p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Notable coursework: Data Structure, Algorithm, Programming Language</p>
+							<p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Projects: Library management system, ATM system, web pages (HTML, C++, Java OOP)</p>
+						</SectionCard>
 					</div>
 				</div>
 			</section>
@@ -95,7 +102,7 @@ const BASE = import.meta.env.BASE_URL;
 			<section class="mb-10">
 				<h2 class="mb-4 text-xl font-semibold text-zinc-900 dark:text-zinc-100">Technical Skills</h2>
 				<div class="grid gap-4 sm:grid-cols-2">
-					<div class="rounded-xl border border-zinc-200 bg-zinc-50/50 p-5 dark:border-zinc-800 dark:bg-zinc-900/50">
+					<SectionCard>
 						<h3 class="mb-3 text-sm font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">Programming Languages</h3>
 						<div class="flex flex-wrap gap-2">
 							<span class="rounded-lg bg-blue-100 px-2.5 py-1 text-sm font-medium text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">HTML</span>
@@ -104,8 +111,8 @@ const BASE = import.meta.env.BASE_URL;
 							<span class="rounded-lg bg-yellow-100 px-2.5 py-1 text-sm font-medium text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-300">Python</span>
 							<span class="rounded-lg bg-green-100 px-2.5 py-1 text-sm font-medium text-green-700 dark:bg-green-900/40 dark:text-green-300">SQL</span>
 						</div>
-					</div>
-					<div class="rounded-xl border border-zinc-200 bg-zinc-50/50 p-5 dark:border-zinc-800 dark:bg-zinc-900/50">
+					</SectionCard>
+					<SectionCard>
 						<h3 class="mb-3 text-sm font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">Core Concepts</h3>
 						<div class="flex flex-wrap gap-2">
 							<span class="rounded-lg bg-zinc-100 px-2.5 py-1 text-sm font-medium text-zinc-700 dark:bg-zinc-700/60 dark:text-zinc-300">Data Structure</span>
@@ -113,7 +120,7 @@ const BASE = import.meta.env.BASE_URL;
 							<span class="rounded-lg bg-zinc-100 px-2.5 py-1 text-sm font-medium text-zinc-700 dark:bg-zinc-700/60 dark:text-zinc-300">OOP</span>
 							<span class="rounded-lg bg-zinc-100 px-2.5 py-1 text-sm font-medium text-zinc-700 dark:bg-zinc-700/60 dark:text-zinc-300">Networking</span>
 						</div>
-					</div>
+					</SectionCard>
 				</div>
 			</section>
 
@@ -121,7 +128,7 @@ const BASE = import.meta.env.BASE_URL;
 			<section class="mb-10">
 				<h2 class="mb-4 text-xl font-semibold text-zinc-900 dark:text-zinc-100">Key Projects</h2>
 				<div class="space-y-4">
-					<div class="rounded-xl border border-zinc-200 bg-zinc-50/50 p-5 dark:border-zinc-800 dark:bg-zinc-900/50">
+					<SectionCard>
 						<div class="flex items-start justify-between gap-3">
 							<h3 class="font-semibold text-zinc-900 dark:text-zinc-100">AI Study Assistant Web App</h3>
 							<span class="shrink-0 rounded-md bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700 dark:bg-amber-900/40 dark:text-amber-400">HTML/CSS/JS · AI APIs</span>
@@ -129,8 +136,8 @@ const BASE = import.meta.env.BASE_URL;
 						<p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
 							Developed an interactive platform using HTML/CSS/JS and AI APIs to generate exercises, summaries, and explain concepts.
 						</p>
-					</div>
-					<div class="rounded-xl border border-zinc-200 bg-zinc-50/50 p-5 dark:border-zinc-800 dark:bg-zinc-900/50">
+					</SectionCard>
+					<SectionCard>
 						<div class="flex items-start justify-between gap-3">
 							<h3 class="font-semibold text-zinc-900 dark:text-zinc-100">Mental Health Chatbot</h3>
 							<span class="shrink-0 rounded-md bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700 dark:bg-amber-900/40 dark:text-amber-400">HTML/CSS/JS · face.js</span>
@@ -138,18 +145,18 @@ const BASE = import.meta.env.BASE_URL;
 						<p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
 							Integrated face.js API for emotion tracking with an AI chatbot to support users' mental health.
 						</p>
-					</div>
+					</SectionCard>
 					<div class="grid gap-4 sm:grid-cols-2">
-						<div class="rounded-xl border border-zinc-200 bg-zinc-50/50 p-4 dark:border-zinc-800 dark:bg-zinc-900/50">
+						<SectionCard padding="sm">
 							<h3 class="font-semibold text-zinc-900 dark:text-zinc-100">Library Management System</h3>
 							<span class="mt-1 block text-xs text-zinc-500 dark:text-zinc-400">C++</span>
 							<p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Efficient book tracking system</p>
-						</div>
-						<div class="rounded-xl border border-zinc-200 bg-zinc-50/50 p-4 dark:border-zinc-800 dark:bg-zinc-900/50">
+						</SectionCard>
+						<SectionCard padding="sm">
 							<h3 class="font-semibold text-zinc-900 dark:text-zinc-100">Banking Operations</h3>
 							<span class="mt-1 block text-xs text-zinc-500 dark:text-zinc-400">Java</span>
 							<p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Secure banking operations system</p>
-						</div>
+						</SectionCard>
 					</div>
 				</div>
 			</section>
@@ -157,7 +164,7 @@ const BASE = import.meta.env.BASE_URL;
 			<!-- Awards -->
 			<section class="mb-10">
 				<h2 class="mb-4 text-xl font-semibold text-zinc-900 dark:text-zinc-100">Awards</h2>
-				<div class="rounded-xl border border-zinc-200 bg-gradient-to-r from-amber-50 to-yellow-50 p-5 dark:border-zinc-800 dark:from-amber-900/20 dark:to-yellow-900/20">
+				<SectionCard gradient>
 					<div class="flex items-center gap-3">
 						<div class="flex h-10 w-10 items-center justify-center rounded-full bg-amber-100 dark:bg-amber-900/50">
 							<svg class="h-5 w-5 text-amber-600 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -169,7 +176,7 @@ const BASE = import.meta.env.BASE_URL;
 							<p class="text-sm text-zinc-600 dark:text-zinc-400">First Prize (CityU) · Third Prize (Final)</p>
 						</div>
 					</div>
-				</div>
+				</SectionCard>
 			</section>
 		</div>
 	</div>

@@ -1,0 +1,21 @@
+---
+interface Props {
+	class?: string;
+	padding?: "sm" | "md";
+	gradient?: boolean;
+}
+
+const { class: className = "", padding = "md", gradient = false } = Astro.props;
+const pad = padding === "sm" ? "p-4" : "p-5";
+const base = "rounded-xl border transition-colors duration-200";
+const light = gradient
+	? "border-zinc-200 bg-gradient-to-r from-amber-50 to-yellow-50"
+	: "border-zinc-200 bg-zinc-50/50";
+const dark = gradient
+	? "dark:border-zinc-800 dark:from-amber-900/20 dark:to-yellow-900/20"
+	: "dark:border-zinc-800 dark:bg-zinc-900/50";
+---
+
+<div class:list={[base, light, dark, pad, className]}>
+	<slot />
+</div>
