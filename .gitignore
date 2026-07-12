@@ -24,3 +24,5 @@ npm-debug.log*
 screenshots/
 screenshot.mjs
 check_avatar.jpg
+
+screenshot_*.png
