@@ -1,9 +1,10 @@
-﻿---
+---
 title: "Understanding Git Workflows"
 description: "A deep dive into Git branching strategies, rebase vs merge, and team collaboration workflows."
 pubDate: 2026-06-20
 tags:
   - git   - devops   - tutorial
+author: Tesla
 lang: en
 ---
 

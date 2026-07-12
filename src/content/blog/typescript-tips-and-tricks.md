@@ -1,9 +1,10 @@
-﻿---
+---
 title: "TypeScript Tips and Tricks"
 description: "Lesser-known TypeScript features that will make your code cleaner and more type-safe."
 pubDate: 2026-06-05
 tags:
   - typescript   - javascript   - web
+author: Tesla
 lang: en
 ---
 

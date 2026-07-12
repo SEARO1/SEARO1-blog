@@ -40,8 +40,12 @@ const postUrl = `${cleanBase}/blog/${post.id}/`;
 			</div>
 		)}
 		
-		<!-- Date -->
+		<!-- Date & Author -->
 		<div class="mb-2 flex items-center gap-2">
+			{post.data.author && (
+				<span class="text-xs font-medium text-zinc-600 dark:text-zinc-400">{post.data.author}</span>
+			)}
+			{post.data.author && <span class="text-zinc-300 dark:text-zinc-600">&middot;</span>}
 			<FormattedDate date={post.data.pubDate} />
 		</div>
 		

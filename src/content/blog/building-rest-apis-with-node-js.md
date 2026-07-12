@@ -1,9 +1,10 @@
-﻿---
+---
 title: "Building REST APIs with Node.js"
 description: "Practical guide to designing and building RESTful APIs using Node.js, Express, and best practices."
 pubDate: 2026-06-18
 tags:
   - javascript   - nodejs   - api   - tutorial
+author: Tesla
 lang: en
 ---
 

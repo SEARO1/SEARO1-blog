@@ -1,9 +1,10 @@
-﻿---
+---
 title: "Introduction to Docker"
 description: "Getting started with Docker containers, images, and docker-compose for local development."
 pubDate: 2026-06-10
 tags:
   - docker   - devops   - tutorial
+author: Tesla
 lang: en
 ---
 

@@ -1,9 +1,10 @@
-﻿---
+---
 title: "CSS Grid vs Flexbox"
 description: "When to use CSS Grid vs Flexbox: a visual comparison with real-world layout examples."
 pubDate: 2026-06-15
 tags:
   - css   - web   - tutorial
+author: Tesla
 lang: en
 ---
 

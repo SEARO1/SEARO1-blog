@@ -3,6 +3,7 @@ title: "Harness & Loop Engineering 101: Why Git Worktree Is Your Parallel AI Age
 description: "Loop Engineering replaces manual prompting with automated loops. Harness Engineering coordinates multiple parallel agents. Git Worktree gives them isolated workspaces. Here's how they fit together."
 pubDate: 2026-07-12
 updatedDate: 2026-07-12
+author: "Kenny && Tesla"
 tags:
   - AI Agents
   - Git

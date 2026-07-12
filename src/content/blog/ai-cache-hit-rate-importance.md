@@ -3,6 +3,7 @@ title: "Your AI Cache Hit Rate is Costing You — Here's How I Fixed Mine"
 description: "How I improved my DeepSeek prompt cache hit rate to ~98% by tuning Claude Code environment variables through cc-switch."
 pubDate: 2026-07-11
 updatedDate: 2026-07-11
+author: Tesla
 tags:
   - AI
   - Caching

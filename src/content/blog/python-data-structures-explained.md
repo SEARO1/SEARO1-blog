@@ -1,9 +1,10 @@
-﻿---
+---
 title: "Python Data Structures Explained"
 description: "Lists, tuples, sets, and dictionaries in Python: when to use which and common patterns."
 pubDate: 2026-06-08
 tags:
   - python   - programming   - tutorial
+author: Tesla
 lang: en
 ---
 
