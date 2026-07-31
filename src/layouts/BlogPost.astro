@@ -72,7 +72,7 @@ const charsLabel = chars.toLocaleString("en-US");
 							<div class="mt-4 flex flex-wrap gap-2">
 								{tags.map((tag) => (
 									<a
-										href={`${BASE}tags/${encodeURIComponent(getTagSlug(tag))}/`}
+										href={`${BASE}/tags/${encodeURIComponent(getTagSlug(tag))}/`}
 										class="inline-flex items-center rounded-md border border-zinc-300/90 bg-zinc-50/96 px-2.5 py-1 text-xs font-medium text-zinc-700 no-underline transition-colors duration-150 ease-out hover:border-zinc-400 hover:bg-white hover:text-zinc-900 dark:border-zinc-700/90 dark:bg-zinc-900/96 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
 									>
 										#{tag}
