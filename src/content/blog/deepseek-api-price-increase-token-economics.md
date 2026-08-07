@@ -173,9 +173,11 @@ Don't panic-migrate. The hike isn't priced yet, and DeepSeek will likely still b
 
 **2. Run the sensitivity math.** Model your cost as:
 
-$$C = T_{hit} \cdot p_{hit} + T_{miss} \cdot p_{miss} + T_{out} \cdot p_{out}$$
+```
+C = T_hit · p_hit + T_miss · p_miss + T_out · p_out
+```
 
-...where $T$ are token volumes and $p$ are prices. Plug in 2x, 5x, and 10x on today's published rates. The result tells you *which* workflow breaks first, and therefore which lever to pull first: prompt canonicalization for cache (if $T_{miss}$ dominates), routing (if $T_{out}$ on the flagship dominates), or self-hosting (if your volume is steady and $T$ is huge).
+*(with T<sub>hit</sub>/T<sub>miss</sub>/T<sub>out</sub> = token volumes by price tier, and p = prices)* — or in HTML-friendly terms: `C = T<sub>hit</sub>·p<sub>hit</sub> + T<sub>miss</sub>·p<sub>miss</sub> + T<sub>out</sub>·p<sub>out</sub>`. Plug in 2x, 5x, and 10x on today's published rates. The result tells you *which* workflow breaks first, and therefore which lever to pull first: prompt canonicalization for cache (if $T_{miss}$ dominates), routing (if $T_{out}$ on the flagship dominates), or self-hosting (if your volume is steady and $T$ is huge).
 
 **3. Then act in order:** fix cache hit rate → route cheap models to cheap work → schedule non-urgent work off-peak if peak pricing ever returns → only at serious sustained volume, compute the self-host TCO.
 
