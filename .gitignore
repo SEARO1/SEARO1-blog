@@ -20,7 +20,13 @@ npm-debug.log*
 .env
 .env.local
 
-# Build cache.astro/
+# Build cache
+.astro/
+
+# Local tooling / trash
+.dsh-vision-router/
+_trash/
+
 screenshots/
 screenshot.mjs
 check_avatar.jpg
