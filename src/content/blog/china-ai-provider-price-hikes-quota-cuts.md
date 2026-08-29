@@ -1,6 +1,6 @@
 ---
 title: "Why Chinese AI Providers Are Raising Prices and Cutting Quotas: The Compute Gap, From the User's Side"
-description: "DeepSeek up 1,100%, Zhipu rationing Coding Plan sales to 20%, Alibaba Cloud pulling baseline packages, quota limits everywhere — this is what the US-China compute gap looks like when it hits your API bill. The verified timeline, the three structural causes, and who wins and loses."
+description: "DeepSeek up 1,100% on its most extreme tier, Zhipu rationing Coding Plan sales to 20%, Alibaba Cloud pulling baseline packages, quota limits everywhere — this is what the US-China compute gap looks like when it hits your API bill. The verified timeline, the three structural causes, and who wins and loses."
 pubDate: 2026-08-30
 updatedDate: 2026-08-30
 tags:
@@ -20,7 +20,7 @@ lang: en
 
 If you use Chinese AI APIs for real work in 2026, you've watched a small absurdity unfold: the providers that spent 2024-2025 competing to be the cheapest thing on Earth now spend 2026 competing to *charge you more* — while simultaneously telling you there isn't enough compute to serve you.
 
-DeepSeek raised flagship output prices up to **1,100%** on August 17 ([Sina/21st Century Business Herald](https://finance.sina.com.cn/roll/2026-08-20/doc-ininxzpp6700432.shtml)). Zhipu hiked three times this year for a cumulative **+83%**, then *rationed* its Coding Plan sales to **20% of prior levels** and eventually refunded customers ([Caixin](https://www.caixinglobal.com/2026-04-21/computing-shortage-forces-chinese-ai-firms-to-ration-services-102436452.html)). Alibaba Cloud **suspended sales of its baseline coding package**, leaving only a premium tier that kept selling out. Kimi K3's output price landed at **100 yuan per million tokens**. Meanwhile Kimi, Doubao, Tencent Cloud, and Baidu all run **periodic quotas** on high-frequency usage.
+DeepSeek raised flagship output prices on August 17, with the most extreme tier (cache-hit input into peak hours) up **1,100%** ([Sina/21st Century Business Herald](https://finance.sina.com.cn/roll/2026-08-20/doc-ininxzpp6700432.shtml)). Zhipu hiked three times this year for a cumulative **+83%**, then *rationed* its Coding Plan sales to **20% of prior levels** and eventually refunded customers ([Caixin](https://www.caixinglobal.com/2026-04-21/computing-shortage-forces-chinese-ai-firms-to-ration-services-102436452.html)). Alibaba Cloud **suspended sales of its baseline coding package**, leaving only a premium tier that kept selling out. Kimi K3's output price landed at **100 yuan per million tokens**. Meanwhile Kimi, Doubao, Tencent Cloud, and Baidu all run **periodic quotas** on high-frequency usage.
 
 None of this is coordination. It's what a compute shortage looks like from the user's side: price up, quota down, plans suspended, refunds issued. This post walks the verified timeline, then explains the three structural forces underneath — one of which is exactly the US-China compute gap I wrote about in [the infrastructure and silicon analysis](/blog/us-china-compute-gap-infrastructure-silicon/).
 
@@ -29,7 +29,7 @@ None of this is coordination. It's what a compute shortage looks like from the u
 ## Where the Facts Stand
 
 **Confirmed (official pricing announcements, primary reporting):**
-- DeepSeek's peak/off-peak pricing went live 00:00 Beijing time Aug 17, 2026: V4-Pro peak output **27 yuan/M tokens (was 6)**, cache-miss input 9 yuan (was 3), **cache-hit input 0.30 yuan — a 12x / 1,100% rise**; off-peak is half of peak ([DeepSeek announcement via Sina](https://finance.sina.com.cn/tech/roll/2026-08-17/doc-ininrkkm6905210.shtml), [Quartz](https://qz.com/deepseek-api-price-increase-v4-peak-off-peak-081326))
+- DeepSeek's peak/off-peak pricing went live 00:00 Beijing time Aug 17, 2026: V4-Pro peak output **27 yuan/M tokens (up from a subsidized 6 yuan baseline — a ~4.5x / +350% rise on that tier)**, cache-miss input 9 yuan (was 3), while the extreme tier — cache-hit input — surged from 0.025/0.03 yuan promotional rates to **0.30 yuan at peak: a 12x / ~1,100% increase**; off-peak is half of peak ([DeepSeek announcement via Sina](https://finance.sina.com.cn/tech/roll/2026-08-17/doc-ininrkkm6905210.shtml), [Quartz](https://qz.com/deepseek-api-price-increase-v4-peak-off-peak-081326))
 - Zhipu's 2026 timeline: Feb GLM Coding Plan structural repricing (+83% cumulative across three hikes in Feb/Mar/Apr) ([Sina](https://finance.sina.com.cn/roll/2026-08-20/doc-ininxzpp6700432.shtml))
 - MiniMax doubled API prices with M3 (June 1); Moonshot (Kimi K3) raised input to 20 yuan and output to 100 yuan per M tokens (July) — 3x+ over prior generation ([Sina](https://finance.sina.com.cn/roll/2026-08-20/doc-ininxzpp6700432.shtml))
 - Morgan Stanley (cited by National Business Daily): average Chinese model API prices rose to **4.9 yuan in / 21.9 yuan out per M tokens in Q2 2026, up ~48% / ~80% vs Q1 2025** ([readaitime](https://www.readaitime.com/news/2026-08-19/18qa1xth))
@@ -42,7 +42,7 @@ None of this is coordination. It's what a compute shortage looks like from the u
   - **DeepSeek**: ~12-hour service outage late March
   - **Moonshot (Kimi)**, **ByteDance (Doubao)**, **Tencent Cloud**, **Baidu**: repeated access restrictions / periodic quotas for high-frequency users; ByteDance disabled a Doubao phone feature over Spring Festival to conserve chips
   - **Alibaba Qwen**: suspended non-essential internal operations over Spring Festival to free compute for model training
-  - **CITIC Securities**: weekly token consumption on OpenRouter up **7-8x year-over-year in April**, heavily fueled by Chinese models
+  - **CITIC Securities**: weekly token consumption on OpenRouter surged 7-8x YoY in April, driven by global demand for open-weight Chinese models (DeepSeek, Qwen) hosted across third-party inference providers
 - DeepSeek's own numbers: user volume **+66.7% vs compute capacity +8.3%** in the months before four consecutive service crashes (May 8/21/24/28, 2026) ([Sina](https://finance.sina.com.cn/roll/2026-08-20/doc-ininxzpp6700432.shtml))
 
 **Inference (my read, labeled as such):** the price hikes and quota cuts are not primarily a profit grab — they are a *capacity rationing mechanism* that the shortage forced onto an industry that had been selling below cost. The independent-model vendors moved first because they have no cloud business to cross-subsidize; the big platforms are adjusting more quietly for the same underlying reason.
@@ -53,14 +53,14 @@ None of this is coordination. It's what a compute shortage looks like from the u
 
 The 2024-2025 strategy was simple: sell below cost to own the market. DeepSeek-V2 set the tone in May 2024 (1 yuan in / 2 yuan out per M tokens), and free tiers appeared across Hunyuan, ERNIE, and iFlytek ([Sina](https://finance.sina.com.cn/roll/2026-08-20/doc-ininxzpp6700432.shtml)). As recently as May 2026, DeepSeek *permanently cut* V4-Pro to a quarter of its price.
 
-Then the demand side exploded in a way nobody modeled. The trigger wasn't chatbots — it was **AI agents**. OpenAI's Claude Code lead pointed at the same phenomenon from the other side of the Pacific on April 4, dropping support for third-party agent tools like OpenClaw because agent frameworks burned "massive, costly token usage" that made the model unprofitable ([Caixin](https://www.caixinglobal.com/2026-04-21/computing-shortage-forces-chinese-ai-firms-to-ration-services-102436452.html)). Zhipu's CEO said it directly: agent tasks like OpenClaw consume **tens to hundreds of times more tokens per task** than chat.
+Then the demand side exploded in a way nobody modeled. The trigger wasn't chatbots — it was **AI agents**. Anthropic's Claude Code lead pointed at the same phenomenon from the other side of the Pacific on April 4, restricting subscription-backed access for third-party agent harnesses like OpenClaw and shunting them onto metered pay-as-you-go API billing — because agent frameworks burned "massive, costly token usage" that made flat-rate subscriptions unprofitable ([TechCrunch](https://techcrunch.com/2026/04/04/anthropic-says-claude-code-subscribers-will-need-to-pay-extra-for-openclaw-support/), [VentureBeat](https://venturebeat.com/technology/anthropic-cuts-off-the-ability-to-use-claude-subscriptions-with-openclaw-and)). Zhipu's CEO said it directly: agent tasks like OpenClaw consume **tens to hundreds of times more tokens per task** than chat.
 
 The result, per Caixin's April reporting:
 
 - **Q1-Q2 2026**: Zhipu rations Coding Plan sales to 20%; Alibaba Cloud suspends its baseline coding product; Kimi/Doubao/Tencent/Baidu impose periodic quotas; ByteDance parks a phone feature to save chips; Alibaba Qwen freezes internal projects over the holiday to feed the training cluster; DeepSeek suffers a 12-hour outage.
 - **June**: MiniMax doubles prices at M3 launch.
 - **July**: Kimi K3 ships with 3x+ API prices (100 yuan out).
-- **Aug 13-17**: DeepSeek announces, then activates, peak/off-peak pricing — up to 1,100% on the most extreme tier, and China's first time-of-day compute tariff ([Caixin Global](https://www.caixinglobal.com/2026-08-14/deepseek-launches-v4-pro-and-raises-api-prices-by-as-much-as-1100-102473919.html)).
+- **Aug 13-17**: DeepSeek announces, then activates, peak/off-peak pricing — with the most extreme tier (cache-hit input at peak) up 1,100%, and China's first time-of-day compute tariff ([Caixin Global](https://www.caixinglobal.com/2026-08-14/deepseek-launches-v4-pro-and-raises-api-prices-by-as-much-as-1100-102473919.html)).
 
 By Q2 2026, the industry average API price had risen ~48% (input) and ~80% (output) year-over-year ([Morgan Stanley via readaitime](https://www.readaitime.com/news/2026-08-19/18qa1xth)). The "cabbage price" era — the term Chinese developers used for token prices — is over.
 
@@ -94,7 +94,7 @@ So the shortage is selective: **plenty of cheap domestic FLOPs for easy tokens, 
 **For developers, the new game has three rules:**
 
 1. **Time-shift the tokens.** DeepSeek's peak/off-peak pricing (off-peak = half price) makes scheduled batch jobs dramatically cheaper — a price signal doing what quota limits did clumsily ([Sina](https://finance.sina.com.cn/tech/roll/2026-08-17/doc-ininrkkm6905210.shtml)).
-2. **Cache aggressively.** The 12x cache-hit increase is the most brutal number in the new price sheet — make sure your workload structure actually exploits cache hits, or the same token stream gets repriced.
+2. **Cache aggressively.** Peak cache-hit unit costs surged up to ~12x relative to previous promotional rates (0.30 yuan vs 0.025 yuan), but caching still delivers a ~97% discount over cache-miss inputs (0.30 yuan vs 9.00 yuan at peak) — failing to optimize prefix-caching now severely penalizes agent loops.
 3. **Model switching is now cheap.** Replacement costs are falling, so loyalty is a function of *stability and task success rate*, not price. Vendors know this: the new pricing discourse is about "task success rate premium" — paying for fewer retries and less human takeover, not for parameter count ([Sina](https://finance.sina.com.cn/roll/2026-08-20/doc-ininxzpp6700432.shtml)).
 
 ---
