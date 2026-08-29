@@ -99,6 +99,23 @@ So the shortage is selective: **plenty of cheap domestic FLOPs for easy tokens, 
 
 ---
 
+## First-Hand Evidence: Liang Wenfeng's Own Pricing Doctrine (Leaked Investor Call)
+
+On May 20, 2026, DeepSeek's founder walked prospective investors through the company's entire playbook in a 3-hour-44-minute private meeting. A transcript of the recording leaked in late July and went viral — so viral that DeepSeek [paused its second fundraising round](https://www.bloomberg.com/news/articles/2026-07-25/deepseek-said-to-tell-backers-of-funding-pause-after-viral-posts) (which had been targeting a pre-money valuation of ~480 billion yuan / ~$71B) after Liang objected to his candid remarks becoming public. The leak is the closest thing we have to a primary source on the pricing decisions behind this entire story ([full transcript archive on GitHub](https://github.com/KnightQuals/deepseek-investor-meeting), [Dealroom analysis](https://dealroom.co/news/143742-deepseeks-leaked-investor-call-1-20th-the-compute-agi-or-nothing-and-the/)).
+
+*Authentication note: the transcript is speech-to-text, flags its own error rate on names and figures, and has not been authenticated by DeepSeek. Treat quotes as Reported, not Confirmed.*
+
+**The pricing doctrine — in Liang's own words:**
+
+- **"Ten months to recover hardware cost, about 6x profit."** DeepSeek prices API to recover equipment cost in roughly ten months — a ~6x margin on compute — and *stops there*. That is the whole pricing model ([GitHub transcript — Vision & Open Source file](https://github.com/KnightQuals/deepseek-investor-meeting/blob/main/DeepSeek%E6%A2%81%E6%96%87%E9%94%8B%E5%9B%9B%E5%B0%8F%E6%97%B6%E6%8A%95%E8%B5%84%E8%80%85%E4%BA%A4%E6%B5%81%E4%BC%9A-01-%E6%84%BF%E6%99%AF%E4%B8%8E%E5%BC%80%E6%BA%90.md)).
+- **Demand is inelastic, and he knows it.** Per the transcript: *"At this price point, user demand is inelastic. If I double the price, token consumption barely changes. Double it again and total revenue nearly doubles."* He declined to do it in May — but **this is the exact reasoning that made the August peak/off-peak hike possible**. The May 20 meeting was two weeks before DeepSeek's four May crashes (users +66.7%, compute +8.3%) ([Sina](https://finance.sina.com.cn/roll/2026-08-20/doc-ininxzpp6700432.shtml)) and three months before the 1,100% increase went live. The doctrine didn't change; the capacity picture did.
+- **Why 6x is a moat, not greed:** *"At 6x margin, nobody else can profitably run DeepSeek's own models cheaper than DeepSeek can. Fat margins would invite competitors to undercut using our open weights. Thin margins are the moat."* Open weights + thin margins = competitors can't arbitrage you. The August hike is the first time that doctrine cracked — forced by the demand explosion the call itself predicted (“agent tasks consume tens to hundreds of times more tokens than chat”, per [Caixin's Zhipu coverage](https://www.caixinglobal.com/2026-04-21/computing-shortage-forces-chinese-ai-firms-to-ration-services-102436452.html)).
+- **The compute admission that frames everything:** Liang said DeepSeek runs on roughly **1/20th of US frontier compute, about 20,000 H-equivalent GPUs**, and that training a frontier-grade model would require **50,000 GB300s or 200,000 Huawei 950s** — for training alone, beyond the entire 50 billion yuan first round. His stated goal: hold the compute ratio and compress the time gap to 3-6 months ([Dealroom](https://dealroom.co/news/143742-deepseeks-leaked-investor-call-1-20th-the-compute-agi-or-nothing-and-the/)).
+
+Why this matters for the quota story: the industry's rationing isn't a mystery when the founder himself says the lab runs on a twentieth of the compute and refuses to raise prices until capacity physically cannot absorb demand. **The August peak pricing is the inelastic-demand doctrine, applied late, under duress.**
+
+---
+
 ## The Structural Read
 
 Stepping back: the quota cuts and price hikes are the **user-visible face of the compute gap**. The US-China gap in *efficient* compute (HBM, Nvidia-class silicon) means Chinese providers cannot scale their most valuable workloads fast enough to meet agent-driven demand — so they ration with prices instead of capacity.
