@@ -144,12 +144,12 @@ Back to seriousness. But the reason this joke lands is that DeepSeek's pricing d
 
 ## Where the Battle Moves: The Call Layer
 
-This is the part I actually care about, and it connects directly to [my previous post on cache hit rates](/blog/ai-cache-hit-rate-importance/). For two years, developers optimized cost one way: **pick a cheaper model**. That worked because someone was always subsidizing. That lever is now bending backward.
+This is the part I actually care about, and it connects directly to [my previous post on cache hit rates](/SEARO1-blog/blog/ai-cache-hit-rate-importance/). For two years, developers optimized cost one way: **pick a cheaper model**. That worked because someone was always subsidizing. That lever is now bending backward.
 
 Cost optimization is moving one layer up — from *which model you choose* to *how you call it*. Five levers, in order of bang for buck:
 
 **1. Cache hit rate (the 50x lever).**
-DeepSeek's cache-hit input price is $0.0028 vs $0.14 uncached — a **50x gap**. Stabilize your prompt prefix (system prompt, tool definitions, long docs — and keep dynamic headers *out* of it), and a 2x price hike nearly cancels out. This is the single highest-ROI move and the one most teams haven't done. I wrote the whole story of hitting ~98% cache hits in Claude Code [last month](/blog/ai-cache-hit-rate-importance/) — if you haven't checked your numbers, do it this week. (OpenCode reported its Flash traffic running near 96% cached input — the lever is real at scale.)
+DeepSeek's cache-hit input price is $0.0028 vs $0.14 uncached — a **50x gap**. Stabilize your prompt prefix (system prompt, tool definitions, long docs — and keep dynamic headers *out* of it), and a 2x price hike nearly cancels out. This is the single highest-ROI move and the one most teams haven't done. I wrote the whole story of hitting ~98% cache hits in Claude Code [last month](/SEARO1-blog/blog/ai-cache-hit-rate-importance/) — if you haven't checked your numbers, do it this week. (OpenCode reported its Flash traffic running near 96% cached input — the lever is real at scale.)
 
 **2. Measure before you schedule.**
 If the withdrawn peak-pricing plan ever returns, off-peak scheduling matters again. Until then, the bigger win is knowing your own shape: per-workflow input cache-hit ratio, input/output token ratio, average calls per task, retry rate, peak QPS, and task success rate. Without these, every cost discussion is vibes.

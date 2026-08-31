@@ -3,5 +3,11 @@ export function normalizeTagLabel(tag: string): string {
 }
 
 export function getTagSlug(tag: string): string {
-	return normalizeTagLabel(tag).toLowerCase();
+	return normalizeTagLabel(tag)
+		.normalize("NFKC")
+		.toLowerCase()
+		.replace(/\s+/gu, "-")
+		.replace(/[^\p{Letter}\p{Number}-]+/gu, "")
+		.replace(/-+/g, "-")
+		.replace(/^-|-$/g, "");
 }

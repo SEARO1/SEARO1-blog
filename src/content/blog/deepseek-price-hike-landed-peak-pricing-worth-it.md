@@ -17,7 +17,7 @@ lang: en
 
 ## Two Weeks Ago I Wrote a Footnote Story. Now It's a Price Table.
 
-On August 7, I wrote about a [fifty-word footnote](/blog/deepseek-api-price-increase-token-economics/): DeepSeek warning of a "significant" increase, no numbers, no date. At the time, the loudest coverage was about a peak-pricing plan that had been floated and *withdrawn*.
+On August 7, I wrote about a [fifty-word footnote](/SEARO1-blog/blog/deepseek-api-price-increase-token-economics/): DeepSeek warning of a "significant" increase, no numbers, no date. At the time, the loudest coverage was about a peak-pricing plan that had been floated and *withdrawn*.
 
 It's not withdrawn anymore. **On 2026-08-16 at 16:00 UTC (midnight Beijing time on the 17th), the new prices went live.** The [official change log](https://api-docs.deepseek.com/updates) — the entry dated 2026-08-13, the same day V4-Pro went GA — is now the primary source for both the mechanism and the official rationale, quoted below. The flat-rate era is over.
 
