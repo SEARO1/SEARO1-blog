@@ -12,7 +12,7 @@ tags:
   - Developer Tools
   - AI Talent
   - AI Infrastructure
-author: "Kenny"
+author: "Kenny && dsh"
 lang: en
 draft: false
 ---
